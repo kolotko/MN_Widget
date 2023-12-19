@@ -1,0 +1,1 @@
+export {WidgetMN} from "./projectFiles/WidgetMN";

@@ -1,0 +1,40 @@
+{
+  "Points": [
+    {
+      "Name": "Przykładowy punkt 1",
+      "Address": "Przykładowy adres 1",
+      "City": "Przykładowe miasto 1",
+      "PostalCode": "Przykładowy kod pocztowy 1",
+      "Longitude": 21.011721,
+      "Latitude": 52.229823,
+      "Description": "Przykładowy opis 1"
+    },
+    {
+      "Name": "Przykładowy punkt 2",
+      "Address": "Przykładowy adres 2",
+      "City": "Przykładowe miasto 2",
+      "PostalCode": "Przykładowy kod pocztowy 2",
+      "Longitude":21.511721,
+      "Latitude": 52.529823,
+      "Description": "Przykładowy opis 2"
+    },
+    {
+      "Name": "Przykładowy punkt 3",
+      "Address": "Przykładowy adres 3",
+      "City": "Przykładowe miasto 3",
+      "PostalCode": "Przykładowy kod pocztowy 3",
+      "Longitude": 21.811721,
+      "Latitude": 52.829823,
+      "Description": "Przykładowy opis 3"
+    },
+    {
+      "Name": "Przykładowy punkt 4",
+      "Address": "Przykładowy adres 4",
+      "City": "Przykładowe miasto 4",
+      "PostalCode": "Przykładowy kod pocztowy 4",
+      "Longitude": 21.311721,
+      "Latitude": 52.329823,
+      "Description": "Przykładowy opis 4"
+    }
+  ]
+}

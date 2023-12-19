@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en_US" xml:lang="en_US">
+<head>
+    <meta http-equiv="Content-Language" content="pl"/>
+    <title>MN widget</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="http://localhost:9011/mn-widget-library/styles.css">
+    <script type="text/javascript" src="http://localhost:9011/mn-widget-library/main.bundle.js" charset="UTF-8"></script>
+    <script>
+        var widgetMN;
+        function showWidget() {
+            widgetMN = new MNGlobalLibrary.WidgetMN(
+                'http://localhost:9011',
+                'mn_widget_container'
+            );
+            widgetMN.Init();
+        }
+
+    </script>
+</head>
+<body>
+    <button onclick="showWidget()" style="height:40px; width:150px">Generuj widget</button>
+    <div style="margin-top: 30px; width: 100%; height: 70vh;" id="mn_widget_container"></div>
+</body>
+</html>

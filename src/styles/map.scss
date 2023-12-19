@@ -1,0 +1,6 @@
+@charset "UTF-8";
+.mn-map-container {
+  width: 100%;
+  height: calc(100% - #{$searchContainerHeight});
+  background: rebeccapurple;
+}

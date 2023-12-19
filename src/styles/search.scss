@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+.mn-search-container {
+  width: calc(100% - #{$searchContainerPadding} - #{$searchContainerPadding});
+  height: $searchContainerHeight;
+  padding: $searchContainerPadding;
+
+  .mn-search-input {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 5px;
+    &:focus-visible {
+      outline: unset;
+    }
+  }
+}
