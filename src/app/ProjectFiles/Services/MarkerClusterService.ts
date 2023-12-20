@@ -1,3 +1,4 @@
+import 'leaflet.markercluster';
 import { Marker, MarkerClusterGroup} from "leaflet";
 
 export class MarkerClusterService {

@@ -4,6 +4,7 @@
   width: calc(100% - #{$searchContainerPadding} - #{$searchContainerPadding});
   height: $searchContainerHeight;
   padding: $searchContainerPadding;
+  position: relative;
 
   .mn-search-input {
     width: 100%;
@@ -14,6 +15,29 @@
     border-radius: 5px;
     &:focus-visible {
       outline: unset;
+    }
+  }
+
+  .mn-hints {
+    display: none;
+    position: absolute;
+    width: calc(100% - #{$searchContainerPadding} - #{$searchContainerPadding});
+    max-height: 110px;
+    border-radius: 5px;
+    margin-top: 5px;
+    background: white;
+    z-index: 999;
+
+    &.show{
+      display: block;
+    }
+
+    .mn-hint {
+      padding: 5px;
+
+      &:hover {
+        background: #bbbbbb;
+      }
     }
   }
 }

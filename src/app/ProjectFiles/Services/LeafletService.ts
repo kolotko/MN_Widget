@@ -48,7 +48,7 @@ export class LeafletService {
     }
 
     private ResizeMapObserver(): void {
-        const aokMapListWrapperContainer = document.getElementById(
+        const mnMapListWrapperContainer = document.getElementById(
             `mn-map-container-${this.randomSeed}`
         ) as HTMLDivElement | null;
 
@@ -56,32 +56,46 @@ export class LeafletService {
             this.map!.invalidateSize();
         });
 
-        if (aokMapListWrapperContainer != null)
-            resizeObserver.observe(aokMapListWrapperContainer);
+        if (mnMapListWrapperContainer != null)
+            resizeObserver.observe(mnMapListWrapperContainer);
     }
 
     private RegisterLayer(): void {
         this.map!.addLayer(this.markerClusterIntegration.MarkerClusters!);
     }
 
-    public CreateMarker(point: Point): Marker {
+    public SetMapPosition(latitude: number, longitude: number): void {
+        this.map!.setView([latitude, longitude], 15);
+    }
+
+    private CreateMarker(point: Point): Marker {
         var marker: Marker;
         marker = L.marker([point.Latitude, point.Longitude],{
-            icon: this.getIcon()
+            icon: this.GetIcon()
         });
 
+        marker.bindPopup(this.GetPopupHtml(point));
         return marker;
     }
 
-    private getIcon(): Icon {
+    private GetIcon(): Icon {
         return L.icon({
             iconUrl: this.url + '/mn-widget-library/src/images/point-icon.svg',
             iconSize: [38, 46]
         });
     }
 
-    public DisplayLayer(markerArray: Marker[]): void {
+    private DisplayLayer(markerArray: Marker[]): void {
         this.markerClusterIntegration.DisplayLayer(markerArray);
     }
 
+    private GetPopupHtml(point: Point): string {
+        return `<div>
+                    <p>${point.Name}</p>
+                    <p>${point.Address}</p>
+                    <p>${point.City}</p>
+                    <p>${point.PostalCode}</p>
+                    <p>${point.Description}</p>
+                </div>`;
+    }
 }
