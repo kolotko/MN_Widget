@@ -10,7 +10,7 @@ export class LeafletRoutingMachineService {
         this.control = null;
     }
 
-    public GenerateRoute(map: Map, latitude: number, longitude: number) {
+    public GenerateRoute(map: Map, latitude: number, longitude: number) : void {
         if (this.control instanceof Control) {
             map.removeControl(this.control);
         }

@@ -108,7 +108,7 @@ export class LeafletService {
                 </div>`;
     }
 
-    public GeneratePopupEvents(pointId: number, latitude: number, longitude: number){
+    public GeneratePopupEvents(pointId: number, latitude: number, longitude: number) : void {
         document.getElementById(
             `mn-navigation-button-${pointId}`
         )?.addEventListener('click', () => {
