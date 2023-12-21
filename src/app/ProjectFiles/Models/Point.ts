@@ -1,4 +1,5 @@
 export interface Point {
+    Id: number;
     Name: string;
     Address: string;
     City: string;

@@ -2,11 +2,13 @@ import * as L from 'leaflet';
 import {Icon, Map, Marker} from "leaflet";
 import {MarkerClusterService} from "./MarkerClusterService";
 import {Point} from "../Models/Point";
+import {LeafletRoutingMachineService} from "./LeafletRoutingMachineService";
 
 export class LeafletService {
     private map: Map | null;
     private readonly url: string;
     private markerClusterIntegration: MarkerClusterService;
+    private leafletRoutingMachineService: LeafletRoutingMachineService;
     private readonly randomSeed: string;
 
     constructor(widgetUrl: string, widgetRandomSeed: string) {
@@ -14,6 +16,7 @@ export class LeafletService {
         this.randomSeed = widgetRandomSeed;
         this.map = null;
         this.markerClusterIntegration = new MarkerClusterService();
+        this.leafletRoutingMachineService = new LeafletRoutingMachineService();
     }
 
     public Init(points: Point[]): void {
@@ -26,12 +29,13 @@ export class LeafletService {
         });
         this.DisplayLayer(markerArray);
         this.ResizeMapObserver();
+        // this.test();
     }
 
     private SetupMap(): void {
         this.map = L.map(`mn-map-container-${this.randomSeed}`, {
-            center: [52.229823, 21.011721],
-            zoom: 8,
+            center: [57.6792, 11.949],
+            zoom: 12,
             zoomControl: false
         });
     }
@@ -75,6 +79,10 @@ export class LeafletService {
         });
 
         marker.bindPopup(this.GetPopupHtml(point));
+
+        marker.on('popupopen', (event) => {
+            this.GeneratePopupEvents(point.Id, point.Latitude, point.Longitude);
+        });
         return marker;
     }
 
@@ -96,6 +104,15 @@ export class LeafletService {
                     <p>${point.City}</p>
                     <p>${point.PostalCode}</p>
                     <p>${point.Description}</p>
+                    <button id="mn-navigation-button-${point.Id}" class="mn-navigation-button">Nawiguj</button>
                 </div>`;
+    }
+
+    public GeneratePopupEvents(pointId: number, latitude: number, longitude: number){
+        document.getElementById(
+            `mn-navigation-button-${pointId}`
+        )?.addEventListener('click', () => {
+            this.leafletRoutingMachineService.GenerateRoute(this.map!, latitude, longitude);
+        });
     }
 }

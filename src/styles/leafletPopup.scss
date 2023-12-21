@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+.mn-navigation-button {
+  border-radius: 4px;
+  background: #9696fd;
+  border: 0;
+  padding: 4px 8px;
+  color: white;
+
+  &:hover {
+    background: #bbbbbb;
+  }
+}
